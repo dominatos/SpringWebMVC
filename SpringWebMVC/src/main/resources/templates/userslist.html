@@ -20,18 +20,18 @@
 
     <tr th:each="user : ${users}">
       <td th:text="${user.getId()}"></td>
-      <td th:text="${user.firstname} + ' ' + ${user.lastname}"></td>
-      <td th:text="${user.email}"></td>
+      <td th:text="${user.getFirstname()} + ' ' + ${user.getLastname()}"></td>
+      <td th:text="${user.getEmail()}"></td>
       <td>
 
         <form th:action="@{/users/delete}" method="post" style="display:inline;">
-          <input type="hidden" name="id" th:value="${user.id}" />
+          <input type="hidden" name="id" th:value="${user.getId()}" />
           <button type="submit" class="btn btn-danger">Eliminare</button>
         </form>
 
-        <a th:href="@{/users/edit/{id}(id=${user.id})}" class="btn btn-primary">Modificare</a>
+        <a th:href="@{/users/edit/{id}(id=${user.getId()})}" class="btn btn-primary">Modificare</a>
 
-        <a th:href="@{/users/view/{id}(id=${user.id})}" class="btn btn-info">Guarda detaglii</a>
+        <a th:href="@{/users/view/{id}(id=${user.getId()})}" class="btn btn-info">Guarda detaglii</a>
       </td>
     </tr>
     </tbody>
